@@ -10,6 +10,11 @@ const runner            = require('./test-runner');
 
 const app = express();
 
+app.use(function(req, res, next) {
+  res.setHeader("Content-Security-Policy", "script-src 'http://localhost:3000'; style-src 'http://localhost:3000'");
+  next();
+});
+
 app.use('/public', express.static(process.cwd() + '/public'));
 
 app.use(cors({origin: '*'})); //For FCC testing purposes only
