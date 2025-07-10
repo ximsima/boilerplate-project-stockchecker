@@ -14,10 +14,18 @@ const app = express();
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-    scriptSrc: ["'self'", "localhost:3000/script.js"],
-    styleSrc: ["'self'", "localhost:3000/style.css"]
+    scriptSrc: ["'self'"],
+    styleSrc: ["'self'"]
   }
 }));
+
+// app.use(helmet.contentSecurityPolicy({
+//   directives: {
+//     defaultSrc: ["'self'"],
+//     scriptSrc: ["'self'", "localhost:3000/script.js"],
+//     styleSrc: ["'self'", "localhost:3000/style.css"]
+//   }
+// }));
 
 // scriptSrc: ["'self'", 'localhost:3000'],
 // styleSrc: ["'self'", 'localhost:3000']
