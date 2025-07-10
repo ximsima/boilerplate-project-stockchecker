@@ -11,7 +11,7 @@ const runner            = require('./test-runner');
 const app = express();
 
 app.use(function(req, res, next) {
-  res.setHeader("Content-Security-Policy", "script-src 'http://localhost:3000'; style-src 'http://localhost:3000'");
+  res.setHeader("Content-Security-Policy", "script-src 'self' http://localhost:3000; style-src 'self' http://localhost:3000");
   next();
 });
 
