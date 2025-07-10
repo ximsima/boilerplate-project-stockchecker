@@ -12,7 +12,7 @@ suite('Functional Tests', function () {
             .end((err, res) => {
                 assert.equal(res.statusCode, 200);
                 const data = JSON.parse(res.text);
-                assert.equal(data.stock, "GOOG");
+                assert.equal(data.stockData.stock, "GOOG");
                 done(); // Signal Mocha that the asynchronous test is complete
             });
     });
@@ -23,8 +23,8 @@ suite('Functional Tests', function () {
             .end((err, res) => {
                 assert.equal(res.statusCode, 200);
                 const data = JSON.parse(res.text);
-                assert.equal(data.stock, "GOOG");
-                assert.equal(data.likes, 1);
+                assert.equal(data.stockData.stock, "GOOG");
+                assert.equal(data.stockData.likes, 1);
                 done(); // Signal Mocha that the asynchronous test is complete
             });
     });
@@ -35,8 +35,8 @@ suite('Functional Tests', function () {
             .end((err, res) => {
                 assert.equal(res.statusCode, 200);
                 const data = JSON.parse(res.text);
-                assert.equal(data.stock, "GOOG");
-                assert.equal(data.likes, 1);
+                assert.equal(data.stockData.stock, "GOOG");
+                assert.equal(data.stockData.likes, 1);
                 done(); // Signal Mocha that the asynchronous test is complete
             });
     });
@@ -47,8 +47,8 @@ suite('Functional Tests', function () {
             .end((err, res) => {
                 assert.equal(res.statusCode, 200);
                 const data = JSON.parse(res.text);
-                assert.equal(data[0].stock, "GOOG");
-                assert.equal(data[1].stock, "AMD");
+                assert.equal(data.stockData[0].stock, "GOOG");
+                assert.equal(data.stockData[1].stock, "AMD");
                 done(); // Signal Mocha that the asynchronous test is complete
             });
     });
@@ -59,10 +59,10 @@ suite('Functional Tests', function () {
             .end((err, res) => {
                 assert.equal(res.statusCode, 200);
                 const data = JSON.parse(res.text);
-                assert.equal(data[0].stock, "GOOG");
-                assert.equal(data[1].stock, "AMD");
-                assert.equal(data[0].rel_like, 0);
-                assert.equal(data[1].rel_like, 0);
+                assert.equal(data.stockData[0].stock, "GOOG");
+                assert.equal(data.stockData[1].stock, "AMD");
+                assert.equal(data.stockData[0].rel_likes, 0);
+                assert.equal(data.stockData[1].rel_likes, 0);
                 done(); // Signal Mocha that the asynchronous test is complete
             });
     });

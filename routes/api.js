@@ -51,8 +51,8 @@ module.exports = function (app) {
 
       let result;
       if (stockData.length > 1) {
-        stockData[0].rel_like = stockData[0].likes - stockData[1].likes;
-        stockData[1].rel_like = stockData[1].likes - stockData[0].likes;
+        stockData[0].rel_likes = stockData[0].likes - stockData[1].likes;
+        stockData[1].rel_likes = stockData[1].likes - stockData[0].likes;
         delete stockData[0]['likes'];
         delete stockData[1]['likes'];
         result = stockData;
@@ -60,8 +60,8 @@ module.exports = function (app) {
         result = stockData[0];
       }
 
-      console.log("result", result);
-      res.json(result);
+      console.log("result", { stockData: result });
+      res.json({ stockData: result });
     });
 
 };
