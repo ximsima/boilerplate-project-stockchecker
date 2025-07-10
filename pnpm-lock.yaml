@@ -32,6 +32,10 @@ importers:
       mocha:
         specifier: ^3.2.0
         version: 3.5.3
+    devDependencies:
+      '@types/helmet':
+        specifier: ^4.0.0
+        version: 4.0.0
 
 packages:
 
@@ -47,6 +51,10 @@ packages:
 
   '@types/cookiejar@2.1.5':
     resolution: {integrity: sha512-he+DHOWReW0nghN24E1WUqM0efK4kI9oTqDm6XmK8ZPe2djZ90BSNdGnIyCLzCPw7/pogPlGbzI2wHGGmi4O/Q==}
+
+  '@types/helmet@4.0.0':
+    resolution: {integrity: sha512-ONIn/nSNQA57yRge3oaMQESef/6QhoeX7llWeDli0UZIfz8TQMkfNPTXA8VnnyeA1WUjG2pGqdjEIueYonMdfQ==}
+    deprecated: This is a stub types definition. helmet provides its own type definitions, so you do not need this installed.
 
   '@types/node@24.0.10':
     resolution: {integrity: sha512-ENHwaH+JIRTDIEEbDK6QSQntAYGtbvdDXnMXnZaZ6k13Du1dPMmprkEHIL7ok2Wl2aZevetwTAb5S+7yIF+enA==}
@@ -634,6 +642,10 @@ snapshots:
   '@types/chai@4.3.20': {}
 
   '@types/cookiejar@2.1.5': {}
+
+  '@types/helmet@4.0.0':
+    dependencies:
+      helmet: 3.23.3
 
   '@types/node@24.0.10':
     dependencies:

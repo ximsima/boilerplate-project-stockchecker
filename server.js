@@ -3,6 +3,7 @@ require('dotenv').config();
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const cors        = require('cors');
+const helmet      = require('helmet');
 
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
@@ -10,10 +11,20 @@ const runner            = require('./test-runner');
 
 const app = express();
 
-app.use(function(req, res, next) {
-  res.setHeader("Content-Security-Policy", "script-src 'self' http://localhost:3000/script.js; style-src 'self' http://localhost:3000/style.css");
-  next();
-});
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'", "http://localhost:3000/script.js"]
+  }
+}));
+
+// scriptSrc: ["'self'", 'localhost:3000'],
+// styleSrc: ["'self'", 'localhost:3000']
+
+// app.use(function(req, res, next) {
+//   res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' http://localhost:3000/script.js; style-src 'self' http://localhost:3000/style.css");
+//   next();
+// });
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
