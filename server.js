@@ -14,7 +14,8 @@ const app = express();
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-    scriptSrc: ["'self'", "http://localhost:3000/script.js"]
+    scriptSrc: ["'self'", "localhost:3000/script.js"],
+    styleSrc: ["'self'", "localhost:3000/style.css"]
   }
 }));
 
